@@ -6,6 +6,15 @@ class GameOver(Exception):
         super().__init__()
         self.player = player
 
+    @staticmethod
+    def write_score(self):
+        """
+        Writes score in the file 'scores.txt'
+        """
+        file = open('scores.txt', 'a')
+        row = "{}: {}\n".format(self.name, self.score)
+        file.write(row)
+
 
 class EnemyDown(Exception):
     """
