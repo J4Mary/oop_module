@@ -55,14 +55,6 @@ class Player:
         else:
             return -1
 
-    def write_score(self):
-        """
-        Writes score in the file 'scores.txt'
-        """
-        file = open('scores.txt', 'a')
-        row = "{}: {}\n".format(self.name, self.score)
-        file.write(row)
-
     def decrease_lives(self):
         """
         Decrease number of your lives
@@ -70,7 +62,7 @@ class Player:
         self.lives -= 1
         if self.lives == 0:
             print('Your score: {}'.format(self.score))
-            self.write_score()
+            GameOver.write_score(self)
             raise GameOver(self)
 
     def attack(self, enemy_obj):
